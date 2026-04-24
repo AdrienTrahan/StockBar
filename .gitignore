@@ -1,10 +1,51 @@
-# Python-generated files
+# Byte-compiled / optimized / DLL files
 __pycache__/
-*.py[oc]
+*.py[cod]
+*.pyo
+*.pyd
+
+# Distribution / packaging
 build/
 dist/
-wheels/
-*.egg-info
+*.egg-info/
+*.egg
 
 # Virtual environments
-.venv
+.venv/
+venv/
+env/
+
+# PyInstaller
+*.spec
+*.manifest
+
+# Testing / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Type checking / linting caches
+.mypy_cache/
+.ruff_cache/
+.pyright/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.*
+
+# IDEs / editors
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# uv (IMPORTANT: do NOT ignore this unless you really intend to)
+# uv.lock should be committed
