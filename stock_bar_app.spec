@@ -26,7 +26,7 @@ exe = EXE(
     a.scripts,
     [],
     exclude_binaries=True,
-    name='Stock Bar',
+    name='StockBar',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
@@ -47,11 +47,11 @@ coll = COLLECT(
     strip=False,
     upx=True,
     upx_exclude=[],
-    name='Stock Bar')
+    name='StockBar')
 
 app = BUNDLE(
     coll,
-    name='Stock Bar.app',
+    name='StockBar.app',
     icon='assets/app_icon.icns',  # Path to your icon file (must be .icns format)
     bundle_identifier='com.stockbar.app',
     info_plist={

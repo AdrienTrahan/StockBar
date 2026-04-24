@@ -1,8 +1,8 @@
 # StockBar.app
 
-## About
-
 StockBar.app is a lightweight macOS menu bar application that streams the real-time price of a single stock and displays it directly in your macOS menu bar for quick, always-visible market tracking.
+
+<img src="assets/preview.png" alt="StockBar Preview" style="max-height:200px; width:auto;"/>
 
 ## Setup Instructions
 

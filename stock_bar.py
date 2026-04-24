@@ -4,7 +4,7 @@ import threading
 
 class StockBarApp(rumps.App):
     def __init__(self):
-        super(StockBarApp, self).__init__("Stock Bar")
+        super(StockBarApp, self).__init__("StockBar")
 
         self.ticker = 'TQQQ'
         self.price = None
