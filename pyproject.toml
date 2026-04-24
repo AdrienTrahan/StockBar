@@ -1,0 +1,12 @@
+[project]
+name = "stockbar"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pyinstaller>=6.20.0",
+    "rumps>=0.4.0",
+    "setuptools>=82.0.1",
+    "yliveticker>=0.5.5",
+]
