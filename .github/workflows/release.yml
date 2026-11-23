@@ -1,0 +1,31 @@
+name: Build and release StockBar
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build app
+        run: |
+          xcodebuild -project StockBar.xcodeproj -scheme StockBar -configuration Release -sdk macosx -derivedDataPath "$RUNNER_TEMP/DerivedData" CODE_SIGNING_ALLOWED=NO build
+      - name: Ad-hoc sign app bundle
+        run: |
+          app="$RUNNER_TEMP/DerivedData/Build/Products/Release/StockBar.app"
+          codesign --force --deep --sign - "$app"
+          codesign --verify --deep --strict "$app"
+      - name: Package app disk image
+        run: hdiutil create -volname StockBar -srcfolder "$RUNNER_TEMP/DerivedData/Build/Products/Release/StockBar.app" -ov -format UDZO StockBar.dmg
+      - name: Publish GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="build-${GITHUB_RUN_NUMBER}"
+          gh release create "$tag" StockBar.dmg --title "StockBar" --notes "Free ad-hoc signed macOS app build from commit ${GITHUB_SHA}. First launch requires Control-click > Open; see README for details."
