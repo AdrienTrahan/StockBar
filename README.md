@@ -1,22 +1,16 @@
-# StockBar.app
+# StockBar
 
-StockBar.app is a lightweight macOS menu bar application that streams the real-time price of a single stock and displays it directly in your macOS menu bar for quick, always-visible market tracking.
+StockBar is a native macOS menu bar app for keeping an eye on stock and ETF prices.
 
-<img src="assets/preview.png" alt="StockBar Preview" style="max-height:200px; width:auto;"/>
+## Open in Xcode
 
-## Setup Instructions
+1. Open `StockBar.xcodeproj` in Xcode.
+2. Select the **StockBar** scheme and press **Run**.
 
-1. Navigate to the project: `cd StockBar-app`
+StockBar supports macOS 13 and later. It runs as a menu bar app without a Dock icon and starts with `TQQQ` in the watchlist.
 
-2. Sync dependencies: `uv sync`
+## Manage tickers
 
-3. Edit `stock_bar.py` and set your desired symbols (example: `SYMBOLS = ["AAPL", "MSFT", "GOOGL"]`)
+Click StockBar's text in the menu bar to see your watchlist. Use the search field to filter by ticker or company name. Enter one or more symbols in the field at the bottom, separated by commas or spaces, then press **Return** or click **Add**. Click **Remove** beside a symbol to remove it. Your watchlist is saved on this Mac.
 
-4. Build the app: `uv run pyinstaller stock_bar_app.spec`
-
-5. Run the app: `open dist/StockBar.app`
-
-## Troubleshooting
-
-- **uv not found**: `curl -LsSf https://astral.sh/uv/install.sh | sh`
-- **App won't open (unverified developer)**: Right-click → Open, or run `xattr -cr dist/StockBar.app`
+Prices arrive in real time through Yahoo Finance's live stream, display to two decimal places, and include a color-coded percentage change. Prices have no currency label, and no API key is required.
